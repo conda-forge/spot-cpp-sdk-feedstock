@@ -1,5 +1,3 @@
-MACOSX_DEPLOYMENT_TARGET:
-- '12.0'
 MACOSX_SDK_VERSION:
 - '12.0'
 c_compiler:
@@ -21,9 +19,9 @@ cxx_compiler_version:
 eigen_abi_devel:
 - 5.0.1
 libabseil:
-- '20260526'
+- '20260817'
 libgrpc:
-- '1.82'
+- '1.85'
 libprotobuf:
 - 7.35.1
 macos_machine:
