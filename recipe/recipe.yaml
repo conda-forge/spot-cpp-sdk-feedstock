@@ -34,7 +34,8 @@ outputs:
             - export CXXFLAGS="${CXXFLAGS} -Wno-deprecated-declarations"
             # Configure C++ project.
             - echo ${CMAKE_ARGS}
-            - cmake -S cpp/ -B build/ ${CMAKE_ARGS} -DCMAKE_FIND_PACKAGE_PREFER_CONFIG=ON -GNinja
+            # Recent compiler activation sets bare tool names in CMAKE_ARGS, which CMake resolves against $SRC_DIR.
+            - cmake -S cpp/ -B build/ ${CMAKE_ARGS} -DCMAKE_AR="$(command -v ${AR})" -DCMAKE_RANLIB="$(command -v ${RANLIB})" -DCMAKE_FIND_PACKAGE_PREFER_CONFIG=ON -GNinja
         - if: win
           then:
             # Configure C++ project.
